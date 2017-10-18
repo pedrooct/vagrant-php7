@@ -31,8 +31,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
         # Windows...
         else
-            cpus = 4
-            mem = 2048
+            cpus = 1
+            mem = 512
         end
 
         vb.customize ["modifyvm", :id, "--memory", mem]
