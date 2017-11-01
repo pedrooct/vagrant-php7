@@ -14,6 +14,7 @@ A simple Vagrant LAMP setup running PHP7.
 - Redis
 - Composer
 - phpMyAdmin
+- PHPUnit
 
 ## How to use
 
