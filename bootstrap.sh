@@ -41,12 +41,12 @@ cat << EOF | sudo tee -a /etc/apache2/sites-available/default.conf
 
 <VirtualHost *:80>
     DocumentRoot /var/www/app
-    ServerName app.dev
+    ServerName app.test
 </VirtualHost>
 
 <VirtualHost *:80>
     DocumentRoot /var/www/phpmyadmin
-    ServerName phpmyadmin.dev
+    ServerName phpmyadmin.test
 </VirtualHost>
 EOF
 sudo a2ensite default.conf
