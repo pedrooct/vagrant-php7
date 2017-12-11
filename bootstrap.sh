@@ -75,3 +75,4 @@ chmod +x phpunit.phar
 sudo mv phpunit.phar /usr/local/bin/phpunit
 phpunit --version
 
+echo "cd /var/www/app" >> /home/vagrant/.bashrc
