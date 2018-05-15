@@ -76,4 +76,8 @@ chmod +x phpunit.phar
 sudo mv phpunit.phar /usr/local/bin/phpunit
 phpunit --version
 
+apt-get install -y php7.0-xml  php-soap 
+apt-get dist-upgrade -y
+apt-get autoremove -y
+
 echo "cd /var/www/app" >> /home/vagrant/.bashrc
