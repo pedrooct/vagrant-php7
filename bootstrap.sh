@@ -67,7 +67,7 @@ sudo mv /var/www/phpMyAdmin-4.0.10.11-english/ /var/www/phpmyadmin
 
 echo "-- Setup databases --"
 mysql -uroot -proot -e "GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'root' WITH GRANT OPTION; FLUSH PRIVILEGES;"
-mysql -uroot -proot -e "CREATE DATABASE my_database";
+mysql -uroot -proot -e "CREATE DATABASE IF NOT EXISTS my_database";
 
 echo "-- Install PHPUnit --"
 wget https://phar.phpunit.de/phpunit.phar
