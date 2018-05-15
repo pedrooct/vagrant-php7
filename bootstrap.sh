@@ -70,7 +70,8 @@ mysql -uroot -proot -e "GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 
 mysql -uroot -proot -e "CREATE DATABASE IF NOT EXISTS my_database";
 
 echo "-- Install PHPUnit --"
-wget https://phar.phpunit.de/phpunit.phar
+wget https://phar.phpunit.de/phpunit-7.0.0.phar
+mv phpunit-7.0.0.phar phpunit.phar
 chmod +x phpunit.phar
 sudo mv phpunit.phar /usr/local/bin/phpunit
 phpunit --version
