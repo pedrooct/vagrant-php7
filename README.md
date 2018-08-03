@@ -25,8 +25,8 @@ A simple Vagrant LAMP setup running PHP7.
 - Run ``vagrant up`` inside the folder on the command line
 - Add the following lines to your hosts file:
 ````
-192.168.100.100 app.dev
-192.168.100.100 phpmyadmin.dev
+192.168.100.100 app.test
+192.168.100.100 phpmyadmin.test
 ````
-- Navigate to ``http://app.dev/`` 
-- Navigate to ``http://phpmyadmin.dev/`` (both username and password are 'root')
+- Navigate to ``http://app.test/`` 
+- Navigate to ``http://phpmyadmin.test/`` (both username and password are 'root')
