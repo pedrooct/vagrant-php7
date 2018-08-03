@@ -27,12 +27,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
         elsif host =~ /linux/
             cpus = `nproc`.to_i
-            mem = `grep 'MemTotal' /proc/meminfo | sed -e 's/MemTotal://' -e 's/ kB//'`.to_i / 1024 / 4
+            mem = `grep 'MemTotal' /proc/meminfo | sed -e 's/MemTotal://' -e 's/ kB//'`.to_i / 512 / 1
 
         # Windows...
         else
             cpus = 1
-            mem = 1024
+            mem = 512
         end
 
         vb.customize ["modifyvm", :id, "--memory", mem]

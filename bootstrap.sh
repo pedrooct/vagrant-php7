@@ -17,14 +17,18 @@ sudo apt-get install -y --force-yes python-software-properties vim htop curl git
 echo "-- Install PPA's --"
 sudo add-apt-repository ppa:ondrej/php
 sudo add-apt-repository ppa:chris-lea/redis-server
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 2930ADAE8CAF5059EE73BB4B58712A2291FA4AD5
+echo "deb [ arch=amd64 ] https://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.6 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.6.list
 Update
 
 echo "-- Install NodeJS --"
 curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash -
 
 echo "-- Install packages --"
+sudo apt-get install -y --force-yes memcached libmemcached-tools
+sudo apt-get install -y --force-yes mongodb-org
 sudo apt-get install -y --force-yes apache2 mysql-server-5.6 git-core nodejs rabbitmq-server redis-server
-sudo apt-get install -y --force-yes php7.0-common php7.0-dev php7.0-json php7.0-opcache php7.0-cli libapache2-mod-php7.0 php7.0 php7.0-mysql php7.0-fpm php7.0-curl php7.0-gd php7.0-mcrypt php7.0-mbstring php7.0-bcmath php7.0-zip
+sudo apt-get install -y --force-yes php7.0-common php7.0-dev php7.0-json php7.0-opcache php7.0-cli libapache2-mod-php7.0 php7.0 php7.0-mysql php7.0-fpm php7.0-curl php7.0-gd php7.0-mcrypt php7.0-mbstring php7.0-bcmath php7.0-zip php7.0-xml php7.0-memcached php7.0-mongodb
 Update
 
 echo "-- Configure PHP &Apache --"
@@ -67,17 +71,11 @@ sudo mv /var/www/phpMyAdmin-4.0.10.11-english/ /var/www/phpmyadmin
 
 echo "-- Setup databases --"
 mysql -uroot -proot -e "GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'root' WITH GRANT OPTION; FLUSH PRIVILEGES;"
-mysql -uroot -proot -e "CREATE DATABASE IF NOT EXISTS my_database";
+mysql -uroot -proot -e "CREATE DATABASE my_database";
 
 echo "-- Install PHPUnit --"
-wget https://phar.phpunit.de/phpunit-7.0.0.phar
-mv phpunit-7.0.0.phar phpunit.phar
+wget https://phar.phpunit.de/phpunit.phar
 chmod +x phpunit.phar
 sudo mv phpunit.phar /usr/local/bin/phpunit
 phpunit --version
 
-apt-get install -y php7.0-xml  php-soap 
-apt-get dist-upgrade -y
-apt-get autoremove -y
-
-echo "cd /var/www/app" >> /home/vagrant/.bashrc
